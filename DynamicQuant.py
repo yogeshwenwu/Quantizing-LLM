@@ -90,6 +90,12 @@ batch_size = len(sentences)
 #         module.qconfig = float_qparams_weight_only_qconfig
 
 quantized_model = torch.quantization.quantize_dynamic(model, {torch.nn.Linear}, dtype=torch.qint8)
+# dtype=torch.qint8
+# torch.quint8
+# torch.qint32
+# torch.float16
+# torch.bfloat16
+
 
 # original_size = sum(p.numel() for p in model.parameters())
 # param_dtypes = {p.dtype for p in model.parameters()}
