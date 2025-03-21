@@ -1,30 +1,40 @@
 build: 4928 (732b5fbf) with cc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0 for x86_64-linux-gnu
 main: llama backend init
 main: load the model and apply lora adapter, if any
-llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from /mnt/mydisk/yogesh/Quantizing-LLM/QuantModel/Llama-2-7b-chat-hf.Q8_0.gguf (version GGUF V3 (latest))
+llama_model_loader: loaded meta data with 32 key-value pairs and 291 tensors from /mnt/mydisk/yogesh/Quantizing-LLM/Llama2_7b_chat_hf_q8_0.gguf (version GGUF V3 (latest))
 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
 llama_model_loader: - kv   0:                       general.architecture str              = llama
-llama_model_loader: - kv   1:                               general.name str              = LLaMA v2
-llama_model_loader: - kv   2:                       llama.context_length u32              = 4096
-llama_model_loader: - kv   3:                     llama.embedding_length u32              = 4096
-llama_model_loader: - kv   4:                          llama.block_count u32              = 32
-llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 11008
-llama_model_loader: - kv   6:                 llama.rope.dimension_count u32              = 128
-llama_model_loader: - kv   7:                 llama.attention.head_count u32              = 32
-llama_model_loader: - kv   8:              llama.attention.head_count_kv u32              = 32
-llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
-llama_model_loader: - kv  10:                          general.file_type u32              = 7
-llama_model_loader: - kv  11:                       tokenizer.ggml.model str              = llama
-llama_model_loader: - kv  12:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
-llama_model_loader: - kv  13:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
-llama_model_loader: - kv  14:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
-llama_model_loader: - kv  15:                tokenizer.ggml.bos_token_id u32              = 1
-llama_model_loader: - kv  16:                tokenizer.ggml.eos_token_id u32              = 2
-llama_model_loader: - kv  17:            tokenizer.ggml.unknown_token_id u32              = 0
-llama_model_loader: - kv  18:               tokenizer.ggml.add_bos_token bool             = true
-llama_model_loader: - kv  19:               tokenizer.ggml.add_eos_token bool             = false
-llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% if messages[0]['role'] == 'system'...
-llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Llama 2 7b Chat Hf
+llama_model_loader: - kv   3:                       general.organization str              = Meta Llama
+llama_model_loader: - kv   4:                           general.finetune str              = chat-hf
+llama_model_loader: - kv   5:                           general.basename str              = Llama-2
+llama_model_loader: - kv   6:                         general.size_label str              = 7B
+llama_model_loader: - kv   7:                            general.license str              = llama2
+llama_model_loader: - kv   8:                               general.tags arr[str,6]       = ["facebook", "meta", "pytorch", "llam...
+llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["en"]
+llama_model_loader: - kv  10:                          llama.block_count u32              = 32
+llama_model_loader: - kv  11:                       llama.context_length u32              = 4096
+llama_model_loader: - kv  12:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv  13:                  llama.feed_forward_length u32              = 11008
+llama_model_loader: - kv  14:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv  15:              llama.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  16:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  17:                          general.file_type u32              = 7
+llama_model_loader: - kv  18:                           llama.vocab_size u32              = 32000
+llama_model_loader: - kv  19:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv  20:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  21:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  22:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  23:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  25:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  26:                tokenizer.ggml.eos_token_id u32              = 2
+llama_model_loader: - kv  27:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  28:               tokenizer.ggml.add_bos_token bool             = true
+llama_model_loader: - kv  29:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  30:                    tokenizer.chat_template str              = {% if messages[0]['role'] == 'system'...
+llama_model_loader: - kv  31:               general.quantization_version u32              = 2
 llama_model_loader: - type  f32:   65 tensors
 llama_model_loader: - type q8_0:  226 tensors
 print_info: file format = GGUF V3 (latest)
@@ -72,7 +82,7 @@ print_info: ssm_dt_rank      = 0
 print_info: ssm_dt_b_c_rms   = 0
 print_info: model type       = 7B
 print_info: model params     = 6.74 B
-print_info: general.name     = LLaMA v2
+print_info: general.name     = Llama 2 7b Chat Hf
 print_info: vocab type       = SPM
 print_info: n_vocab          = 32000
 print_info: n_merges         = 0
@@ -108,7 +118,7 @@ main: llama threadpool init, n_threads = 10
 
 system_info: n_threads = 10 (n_threads_batch = 10) / 20 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | LLAMAFILE = 1 | OPENMP = 1 | AARCH64_REPACK = 1 | 
 
-sampler seed: 4190172285
+sampler seed: 2302175199
 sampler params: 
 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 4096
@@ -117,20 +127,22 @@ sampler params:
 sampler chain: logits -> logit-bias -> penalties -> dry -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
 generate: n_ctx = 4096, n_batch = 2048, n_predict = 512, n_keep = 1
 
- In a world where artificial intelligence is transforming every aspect of human life, from automating tasks to revolutionizing scientific research and creative expression, a young developer, driven by an insatiable curiosity and an unwavering determination to push the boundaries of what is possible, embarks on an ambitious journey to create an advanced autograder system, one that not only evaluates code for correctness but also understands the logic behind each implementation, identifies inefficiencies, and provides dynamic, personalized feedback tailored to the unique learning style of each student, ensuring that no two learners receive the same generic responses but instead benefit from an AI-driven mentor capable of analyzing patterns in their mistakes, suggesting alternative approaches, and fostering a deeper understanding of fundamental programming concepts, all while integrating sophisticated natural language processing algorithms to assess short-answer responses with contextual accuracy, allowing students to receive instant, meaningful feedback on theoretical questions alongside their coding assignments, thereby bridging the gap between automated assessment and human-like instruction, creating an intelligent tutoring system that adapts over time, refining its evaluation strategies through continuous learning from a vast dataset of student submissions, detecting trends in conceptual misunderstandings, and dynamically adjusting its grading criteria to align with real-world expectations, ensuring that students are not merely memorizing syntax and standard algorithms but truly grasping the essence of computational thinking, problem decomposition, and optimization, thereby cultivating a new generation of programmers who can think critically, solve complex challenges with confidence, and innovate in ways that traditional education systems often fail to encourage, as the AI-driven platform extends beyond mere evaluation to provide interactive debugging assistance, guiding students through their mistakes with step-by-step explanations, interactive hints, and adaptive learning paths that modify the difficulty of problems based on individual performance, all while seamlessly integrating with existing educational frameworks, allowing instructors to monitor progress, identify struggling students early, and tailor their teaching approaches to address widespread knowledge gaps, making AI not just an evaluator but a true partner in education, one that scales personalized mentorship to levels previously thought impossible, ensuring that every learner, regardless of background or experiences, has access to high-quality guidance that fosters a deep, enduring passion for coding and computational problem-solving, shaping a future where technology serves humanity with empathy, creativity, and a commitment to equity and inclusivity.
+ In a world where artificial intelligence is transforming every aspect of human life, from automating tasks to revolutionizing scientific research and creative expression, a young developer, driven by an insatiable curiosity and an unwavering determination to push the boundaries of what is possible, embarks on an ambitious journey to create an advanced autograder system, one that not only evaluates code for correctness but also understands the logic behind each implementation, identifies inefficiencies, and provides dynamic, personalized feedback tailored to the unique learning style of each student, ensuring that no two learners receive the same generic responses but instead benefit from an AI-driven mentor capable of analyzing patterns in their mistakes, suggesting alternative approaches, and fostering a deeper understanding of fundamental programming concepts, all while integrating sophisticated natural language processing algorithms to assess short-answer responses with contextual accuracy, allowing students to receive instant, meaningful feedback on theoretical questions alongside their coding assignments, thereby bridging the gap between automated assessment and human-like instruction, creating an intelligent tutoring system that adapts over time, refining its evaluation strategies through continuous learning from a vast dataset of student submissions, detecting trends in conceptual misunderstandings, and dynamically adjusting its grading criteria to align with real-world expectations, ensuring that students are not merely memorizing syntax and standard algorithms but truly grasping the essence of computational thinking, problem decomposition, and optimization, thereby cultivating a new generation of programmers who can think critically, solve complex challenges with confidence, and innovate in ways that traditional education systems often fail to encourage, as the AI-driven platform extends beyond mere evaluation to provide interactive debugging assistance, guiding students through their mistakes with step-by-step explanations, interactive hints, and adaptive learning paths that modify the difficulty of problems based on individual performance, all while seamlessly integrating with existing educational frameworks, allowing instructors to monitor progress, identify struggling students early, and tailor their teaching approaches to address widespread knowledge gaps, making AI not just an evaluator but a true partner in education, one that scales personalized mentorship to levels previously thought impossible, ensuring that every learner, regardless of background or experiences, has access to high-quality guidance that fosters a deep, enduring passion for coding and computational problem-solving, transforming the way we learn, work, and interact with technology, and opening up new avenues for human innovation and creativity.
 
-The young developer, fueled by their insatiable curiosity and unwavering determination, embarks on an ambitious journey to create an advanced autograder system that not only evaluates code for correctness but also understands the logic behind each implementation, identifies inefficiencies, and provides dynamic, personalized feedback tailored to the unique learning style of each student. This AI-driven mentor can analyze patterns in students' mistakes, suggest alternative approaches, and foster a deeper understanding of fundamental programming concepts.
+As a developer, I have always been fascinated by the potential of artificial intelligence to revolutionize every aspect of our lives. However, as I delved deeper into the field, I realized that the limitations of current AI systems were hindering their ability to truly transform the education sector. Most autograder systems were little more than glorified spell checkers, incapable of evaluating code for correctness or understanding the logic behind each implementation. They provided generic, impersonal feedback that failed to address the unique learning needs of each student.
 
-To achieve this goal, the young developer leverages sophisticated natural language processing algorithms to assess short-answer responses with contextual accuracy, allowing students to receive instant, meaningful feedback on theoretical questions alongside their coding assignments. This integration bridges the gap between automated assessment and human-like instruction, creating an intelligent tutoring system that adapts over time through continuous learning from a vast dataset of student submissions.
+Determined to create a more sophisticated autograder system that could evaluate code, understand the logic behind each implementation, and provide personalized feedback tailored to the unique learning style of each student, I embarked on an ambitious journey. I poured over research papers, attended conferences, and collaborated with leading experts in the field. I spent countless hours programming and debugging, testing and retesting my creations.
 
-As the AI-driven platform extends beyond evaluation to provide interactive debugging assistance, it guides students through their mistakes with step-by-step explanations, interactive hints, and adaptive learning paths that modify the difficulty of problems based on individual performance. This integrated approach ensures that students not only memorize syntax and standard algorithms but truly grasp the essence of computational thinking, problem decomposition, and optimization.
+The result of my work is an AI-driven autograder system that far surpasses anything that has come before. By integrating sophisticated natural language processing algorithms with advanced machine learning techniques, my system can assess short-answer responses with contextual accuracy, providing instant, meaningful feedback on theoretical questions alongside coding assignments.
 
-Moreover, the young developer's innovative autograder system seamlessly integrates with existing educational frameworks, allowing instructors to monitor progress, identify struggling students early, and tailor their teaching approaches to address widespread knowledge gaps. By making AI a true partner in education, the young developer's platform scales personalized mentorship to levels previously thought impossible, ensuring that every learner, regardless of background or experiences, has access to high-quality guidance that fosters a deep, enduring passion for coding and computational problem-solving.
+But the true power of my system lies in its ability to adapt over time. Through continuous learning from a vast dataset of student submissions, my autograder can detect trends in conceptual misunderstandings and dynamically adjust its grading criteria to align with real-world expectations. Rather than merely memorizing syntax and standard algorithms, students are encouraged to think critically and solve complex challenges with confidence.
 
-Through this groundbreaking AI-driven platform, the young developer not only revolutionizes the field of computer science education but also shapes a future where technology serves humanity with empathy, creativity, and a commitment to equity and inclusivity. By harnessing the power of AI to augment, rather
+But my system doesn't just stop at evaluation. It also provides interactive debugging assistance, guiding students through their mistakes with step-by-step explanations, interactive hints, and adaptive learning paths that modify the difficulty of problems based on individual performance. By seamlessly integrating with existing educational frameworks, my autograder system enables instructors to monitor progress, identify struggling students early, and tailor their teaching approaches to address widespread knowledge gaps.
 
-llama_perf_sampler_print:    sampling time =      20.90 ms /  1024 runs   (    0.02 ms per token, 49002.25 tokens per second)
-llama_perf_context_print:        load time =    1605.24 ms
-llama_perf_context_print: prompt eval time =   13071.55 ms /   512 tokens (   25.53 ms per token,    39.17 tokens per second)
-llama_perf_context_print:        eval time =  136767.90 ms /   511 runs   (  267.65 ms per token,     3.74 tokens per second)
-llama_perf_context_print:       total time =  149912.39 ms /  1023 tokens
+In short, my AI
+
+llama_perf_sampler_print:    sampling time =      18.92 ms /  1024 runs   (    0.02 ms per token, 54122.62 tokens per second)
+llama_perf_context_print:        load time =    1573.83 ms
+llama_perf_context_print: prompt eval time =   11091.86 ms /   512 tokens (   21.66 ms per token,    46.16 tokens per second)
+llama_perf_context_print:        eval time =  134050.73 ms /   511 runs   (  262.33 ms per token,     3.81 tokens per second)
+llama_perf_context_print:       total time =  145211.75 ms /  1023 tokens
