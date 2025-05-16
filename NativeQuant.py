@@ -15,42 +15,44 @@ model = model.to(device)
 model.eval()
 backend = "fbgemm"
 
-# >>> Define a dataset of 10 sentences <<<
-sentences = [
-    "The weather is bad today it might rain anytime",
-    "Artificial intelligence is transforming the way ",
-    "The movie I watched yesterday had an unexpected twist at the end ",
-    "you recommended a good book to read over the weekend, that was",
-    "The capital of France is Paris, known for its art, culture ",
-    "She ordered a latte at the café and worked on her presentation ",
-    "the key differences between machine learning and deep learning is ",
-    "The traffic on my way to work this morning was ",
-    "Python is a versatile programming language often used in ",
-    "He went to the gym every day, determined to improve"
-]
-batch_size = len(sentences)
+# # >>> Define a dataset of 10 sentences <<<
+# sentences = [
+#     "The weather is bad today it might rain anytime",
+#     "Artificial intelligence is transforming the way ",
+#     "The movie I watched yesterday had an unexpected twist at the end ",
+#     "you recommended a good book to read over the weekend, that was",
+#     "The capital of France is Paris, known for its art, culture ",
+#     "She ordered a latte at the café and worked on her presentation ",
+#     "the key differences between machine learning and deep learning is ",
+#     "The traffic on my way to work this morning was ",
+#     "Python is a versatile programming language often used in ",
+#     "He went to the gym every day, determined to improve"
+# ]
+sentences = "In a world where artificial intelligence is transforming every aspect of human life, from automating tasks to revolutionizing scientific research and creative expression, a young developer, driven by an insatiable curiosity and an unwavering determination to push the boundaries of what is possible, embarks on an ambitious journey to create an advanced autograder system, one that not only evaluates code for correctness but also understands the logic behind each implementation, identifies inefficiencies, and provides dynamic, personalized feedback tailored to the unique learning style of each student, ensuring that no two learners receive the same generic responses but instead benefit from an AI-driven mentor capable of analyzing patterns in their mistakes, suggesting alternative approaches, and fostering a deeper understanding of fundamental programming concepts, all while integrating sophisticated natural language processing algorithms to assess short-answer responses with contextual accuracy, allowing students to receive instant, meaningful feedback on theoretical questions alongside their coding assignments, thereby bridging the gap between automated assessment and human-like instruction, creating an intelligent tutoring system that adapts over time, refining its evaluation strategies through continuous learning from a vast dataset of student submissions, detecting trends in conceptual misunderstandings, and dynamically adjusting its grading criteria to align with real-world expectations, ensuring that students are not merely memorizing syntax and standard algorithms but truly grasping the essence of computational thinking, problem decomposition, and optimization, thereby cultivating a new generation of programmers who can think critically, solve complex challenges with confidence, and innovate in ways that traditional education systems often fail to encourage, as the AI-driven platform extends beyond mere evaluation to provide interactive debugging assistance, guiding students through their mistakes with step-by-step explanations, interactive hints, and adaptive learning paths that modify the difficulty of problems based on individual performance, all while seamlessly integrating with existing educational frameworks, allowing instructors to monitor progress, identify struggling students early, and tailor their teaching approaches to address widespread knowledge gaps, making AI not just an evaluator but a true partner in education, one that scales personalized mentorship to levels previously thought impossible, ensuring that every learner, regardless of background or experiences, has access to high-quality guidance that fosters a deep, enduring passion for coding and computational problem-solving"
 
-# >>> Add Quantization Stubs to the Model <<<
-class QuantizedModel(torch.nn.Module):
-    def __init__(self, model):
-        super().__init__()
-        self.quant = QuantStub()  # Quantize input
-        self.model = model
-        self.dequant = DeQuantStub()  # Dequantize output
+batch_size = 1#len(sentences)
 
-    def forward(self, input_ids, attention_mask=None):
-        x = self.quant(input_ids)
-        outputs = self.model.generate(x,
-            attention_mask=inputs['attention_mask'],
-            max_new_tokens=50,
-            do_sample=False,
-            return_dict_in_generate=True,
-            output_scores=True
-            )
-        return self.dequant(outputs.sequences)  # Only quantize logits for simplicity
+# # >>> Add Quantization Stubs to the Model <<<
+# class QuantizedModel(torch.nn.Module):
+#     def __init__(self, model):
+#         super().__init__()
+#         self.quant = QuantStub()  # Quantize input
+#         self.model = model
+#         self.dequant = DeQuantStub()  # Dequantize output
 
-# Wrap the original model
-quant_model = QuantizedModel(model)
+#     def forward(self, input_ids, attention_mask=None):
+#         x = self.quant(input_ids)
+#         outputs = self.model.generate(x,
+#             attention_mask=inputs['attention_mask'],
+#             max_new_tokens=50,
+#             do_sample=False,
+#             return_dict_in_generate=True,
+#             output_scores=True
+#             )
+#         return self.dequant(outputs.sequences)  # Only quantize logits for simplicity
+
+# # Wrap the original model
+# quant_model = QuantizedModel(model)
 
 # >>> Prepare the Model for Quantization <<<
 quant_model.qconfig = get_default_qconfig(backend)  # Use 'fbgemm' for x86 CPU
